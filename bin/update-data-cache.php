@@ -20,10 +20,6 @@ if (!isset($config['apiKey'])) {
 
 $mailchimp = new \MailchimpAPI\Mailchimp($config['apiKey']);
 
-if (file_exists('data/cache/lists.json')) {
-    unlink('data/cache/lists.json');
-}
-
 $time_start = microtime(true);
 
 $mailchimpLists = $mailchimp
@@ -129,10 +125,11 @@ foreach ($mailchimpLists as $list) {
     /*
      * Get list members
      */
-    if (file_exists(sprintf('data/cache/members-%s.json', $myList['identifier']))) {
-        unlink(sprintf('data/cache/members-%s.json', $myList['identifier']));
-    }
-    if ($myList['displayList'] === true) {
+    if ($myList['displayList'] !== true) {
+        if (file_exists(sprintf('data/cache/members-%s.json', $myList['identifier']))) {
+            unlink(sprintf('data/cache/members-%s.json', $myList['identifier']));
+        }
+    } else {
         $mailchimpMembers = $mailchimp
             ->lists($list->id)
             ->members()
@@ -225,12 +222,18 @@ foreach ($mailchimpLists as $list) {
             call_user_func_array('array_multisort', $multisort);
         }
 
+        if (file_exists(sprintf('data/cache/members-%s.json', $myList['identifier']))) {
+            unlink(sprintf('data/cache/members-%s.json', $myList['identifier']));
+        }
         file_put_contents(sprintf('data/cache/members-%s.json', $myList['identifier']), json_encode($myMembers));
     }
 
     $myLists[] = $myList;
 }
 
+if (file_exists('data/cache/lists.json')) {
+    unlink('data/cache/lists.json');
+}
 file_put_contents('data/cache/lists.json', json_encode($myLists));
 
 $time_end = microtime(true);
