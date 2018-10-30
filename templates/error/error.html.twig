@@ -1,0 +1,32 @@
+{% extends '@layout/default.html.twig' %}
+
+{% block title %}{{ status }} {{ reason }}{% endblock %}
+
+{% block stylesheets %}
+<style>
+    html,
+    body {
+        height: 100%;
+    }
+
+    body {
+        display: flex;
+        align-items: center;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="mx-auto" style="width: 33vw;">
+    <h1>Oops!</h1>
+    <h2>This is awkward.</h2>
+    <hr>
+    <p>We encountered a {{ status }} {{ reason }} error.</p>
+    {% if status == 404 %}
+        <p>
+            You are looking for something that doesn't exist or may have moved. Check out one of the links on this page
+            or head back to <a href="{{ path('home') }}">Home</a>.
+        </p>
+    {% endif %}
+</div>
+{% endblock %}

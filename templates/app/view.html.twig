@@ -1,0 +1,65 @@
+{% extends '@layout/default.html.twig' %}
+
+{% block title %}{{ list.name }} - View{% endblock %}
+
+{% block content %}
+<h1 class="mt-3 d-flex w-100 justify-content-between">
+    {{ list.name }}
+    <span class="text-info">
+        <i class="fas fa-users"></i>
+        {{ list.members }}
+    </span>
+</h1>
+
+<table class="table table-striped table-sm">
+    <thead>
+        <tr>
+            {% for field in list.mergeFields if field.public %}
+            <th class="text-nowrap"
+                {{ list.usernameMergeField is defined and list.usernameMergeField == field.tag ? ' colspan="2"'}}>{{
+                field.name }}</th>
+            {% endfor %}
+            <th class="text-nowrap">Registration date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for member in members %}
+        <tr>
+            {% for field in list.mergeFields if field.public %}
+            {% if list.usernameMergeField is defined and list.usernameMergeField == field.tag %}
+            {% if member.since is defined %}
+            <td>
+                <a href="https://www.openstreetmap.org/user/{{ member.username }}" target="_blank">
+                    {{ member.username }}
+                </a>
+            </td>
+            <td class="small text-nowrap">
+                Since {{ member.since }}<br>
+                Changes:
+                <a href="https://hdyc.neis-one.org/?{{ member.username }}" target="_blank">
+                    World: {{ member.changesTotal | number_format(0, '', '.') }}
+                    {% if list.countries is defined and member.changesLocal is defined %}
+                    -
+                    {% for country in list.countries %}
+                    {{ country | upper }}: {{ attribute(member.changesLocal, country) | number_format(0, '', '.') }}
+                    {% endfor %}
+                    {% endif %}
+                </a>
+            </td>
+            {% else %}
+            <td colspan="2" class="text-muted text-nowrap">
+                <em style="cursor:help;" title="This OpenStreetMap username does not exist.">{{ member.username }}</em>
+            </td>
+            {% endif %}
+            {% else %}
+            <td>
+                {{ attribute(member.mergeFields, field.tag) }}
+            </td>
+            {% endif %}
+            {% endfor %}
+            <td class="text-nowrap">{{ member.timestampOpt | date('F jS, Y') }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

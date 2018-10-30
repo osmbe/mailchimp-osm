@@ -1,0 +1,26 @@
+{% extends '@layout/default.html.twig' %}
+
+{% block title %}Error{% endblock %}
+
+{% block stylesheets %}
+<style>
+    html,
+    body {
+        height: 100%;
+    }
+
+    body {
+        display: flex;
+        align-items: center;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="mx-auto" style="width: 33vw;">
+    <h1>Oops!</h1>
+    <h2>This is awkward.</h2>
+    <hr>
+    <p>{{ message }}</p>
+</div>
+{% endblock %}

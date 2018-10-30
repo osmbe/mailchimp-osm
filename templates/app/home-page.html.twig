@@ -1,0 +1,36 @@
+{% extends '@layout/default.html.twig' %}
+
+{% block title %}Lists{% endblock %}
+
+{% block stylesheets %}
+<style>
+    html,
+    body {
+        height: 100%;
+    }
+
+    body {
+        display: flex;
+        align-items: center;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="list-group mx-auto" style="width: 33vw;">
+    {% for list in lists %}
+    <a href="{{ path('subscribe', {'list': list.identifier}) }}" class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{ list.name }}</h5>
+            {% if list.displayList == true %}
+            <small class="text-info">
+                <i class="fas fa-users"></i>
+                {{ list.members }}
+            </small>
+            {% endif %}
+        </div>
+        <p class="mb-1">{{ list.description }}</p>
+    </a>
+    {% endfor %}
+</div>
+{% endblock %}
