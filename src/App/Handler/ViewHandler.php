@@ -78,7 +78,7 @@ class ViewHandler implements RequestHandlerInterface
 
             $data = [
                 'iframe'  => $iframe,
-                'update' => filemtime($membersFile),
+                'update'  => filemtime($membersFile),
                 'list'    => $list,
                 'members' => $members,
             ];
