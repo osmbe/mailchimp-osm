@@ -56,6 +56,7 @@ class HomePageHandler implements RequestHandlerInterface
 
             $data = [
                 'iframe' => $iframe,
+                'update' => filemtime($file),
                 'lists'  => $lists,
             ];
 
