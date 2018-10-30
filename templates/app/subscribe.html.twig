@@ -13,87 +13,81 @@
 {% endblock %}
 
 {% block content %}
-<div class="row justify-content-md-center">
-    <div class="col-md-8">
-        <h1 class="h2 mt-3 d-flex w-100 justify-content-between">
-            {{ list.name }}
-            {% if list.displayList == true %}
-            <a href="{{ path('view', {list: list.identifier}) }}{{ iframe ? '?iframe'}}" class="text-info text-nowrap" style="text-decoration:none;">
-                <i class="fas fa-users"></i>
-                {{ list.members }}
-            </a>
-            {% endif %}
-        </h1>
-        <p>{{ list.description }}</p>
-        <hr>
+<h1 class="h2 mt-3 d-flex w-100 justify-content-between">
+    {{ list.name }}
+    {% if list.displayList == true %}
+    <a href="{{ path('view', {list: list.identifier}) }}{{ iframe ? '?iframe'}}" class="text-info text-nowrap" style="text-decoration:none;">
+        <i class="fas fa-users"></i>
+        {{ list.members }}
+    </a>
+    {% endif %}
+</h1>
+<p>{{ list.description }}</p>
+<hr>
 
-        <form id="subscribe-form" autocomplete="off">
-            <div class="form-group">
-                <label for="inputEmail">Email address *</label>
-                <input type="email" name="email" id="inputEmail" class="form-control" required>
-                <small class="form-text text-muted">We'll never share your email with anyone else.</small>
-            </div>
-
-            {% for field in list.mergeFields if field.public %}
-            <div class="form-group">
-                <label for="input{{ field.tag }}">{{ field.name }}{{ field.required ? ' *' }}</label>
-                {% if field.type == 'radio' %}
-                <select name="{{ field.tag }}" id="input{{ field.tag }}" class="form-control"
-                    {{ field.required ? 'required' }}>
-                    {% if not field.required %}
-                    <option value=""></option>
-                    {% endif %}
-                    {% for choice in field.choices %}
-                    <option value="{{ choice }}">{{ choice }}</option>
-                    {% endfor %}
-                </select>
-                {% else %}
-                <input type="{{ field.type }}" name="{{ field.tag }}" id="input{{ field.tag }}" class="form-control"
-                    {{ field.required ? 'required' }}>
-                {% endif %}
-                {% if field.helpText is defined %}
-                <small class="form-text text-muted">{{ field.helpText }}</small>
-                {% endif %}
-            </div>
-            {% endfor %}
-
-            {% for i, field in list.interestCategories %}
-            <div class="form-group">
-                <label>{{ field.title }}</label><br>
-                {% for j, interest in field.interests %}
-                <div class="form-check form-check-inline">
-                    <label for="inputInterest-{{ i }}-{{ j }}" class="form-check-label">
-                        <input class="form-check-input" type="checkbox" id="inputInterest-{{ i }}-{{ j }}" name="interests[]"
-                            value="{{ interest.id }}">
-                        {{ interest.name }}
-                    </label>
-                </div>
-                {% endfor %}
-            </div>
-            {% endfor %}
-
-            <button type="submit" id="btn-submit" class="btn btn-primary btn-block">
-                <i class="fas fa-user-plus"></i>
-                Subscribe
-            </button>
-        </form>
-
-        <div id="result" style="display:none;">
-            <hr>
-            <div class="text-success">
-                <strong>
-                    {% if list.doubleOptIn %}
-                    Your subscription to "{{ list.name }}" is sent.<br>
-                    You will receive an email asking you to confirm that subscription !
-                    {% else %}
-                    You are now subscribed to "{{ list.name }}".
-                    {% endif %}
-                </strong>
-            </div>
-            <div class="text-danger"></div>
-        </div>
-
+<form id="subscribe-form" autocomplete="off">
+    <div class="form-group">
+        <label for="inputEmail">Email address *</label>
+        <input type="email" name="email" id="inputEmail" class="form-control" required>
+        <small class="form-text text-muted">We'll never share your email with anyone else.</small>
     </div>
 
+    {% for field in list.mergeFields if field.public %}
+    <div class="form-group">
+        <label for="input{{ field.tag }}">{{ field.name }}{{ field.required ? ' *' }}</label>
+        {% if field.type == 'radio' %}
+        <select name="{{ field.tag }}" id="input{{ field.tag }}" class="form-control"
+            {{ field.required ? 'required' }}>
+            {% if not field.required %}
+            <option value=""></option>
+            {% endif %}
+            {% for choice in field.choices %}
+            <option value="{{ choice }}">{{ choice }}</option>
+            {% endfor %}
+        </select>
+        {% else %}
+        <input type="{{ field.type }}" name="{{ field.tag }}" id="input{{ field.tag }}" class="form-control"
+            {{ field.required ? 'required' }}>
+        {% endif %}
+        {% if field.helpText is defined %}
+        <small class="form-text text-muted">{{ field.helpText }}</small>
+        {% endif %}
+    </div>
+    {% endfor %}
+
+    {% for i, field in list.interestCategories %}
+    <div class="form-group">
+        <label>{{ field.title }}</label><br>
+        {% for j, interest in field.interests %}
+        <div class="form-check form-check-inline">
+            <label for="inputInterest-{{ i }}-{{ j }}" class="form-check-label">
+                <input class="form-check-input" type="checkbox" id="inputInterest-{{ i }}-{{ j }}" name="interests[]"
+                    value="{{ interest.id }}">
+                {{ interest.name }}
+            </label>
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+
+    <button type="submit" id="btn-submit" class="btn btn-primary btn-block">
+        <i class="fas fa-user-plus"></i>
+        Subscribe
+    </button>
+</form>
+
+<div id="result" style="display:none;">
+    <hr>
+    <div class="text-success">
+        <strong>
+            {% if list.doubleOptIn %}
+            Your subscription to "{{ list.name }}" is sent.<br>
+            You will receive an email asking you to confirm that subscription !
+            {% else %}
+            You are now subscribed to "{{ list.name }}".
+            {% endif %}
+        </strong>
+    </div>
+    <div class="text-danger"></div>
 </div>
 {% endblock %}
