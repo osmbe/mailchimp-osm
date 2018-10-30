@@ -35,6 +35,10 @@ class HomePageHandler implements RequestHandlerInterface
 
     public function handle(ServerRequestInterface $request) : ResponseInterface
     {
+        $query = $request->getQueryParams();
+
+        $iframe = isset($query['iframe']);
+
         try {
             $file = 'data/cache/lists.json';
             if (!file_exists($file)) {
@@ -51,12 +55,14 @@ class HomePageHandler implements RequestHandlerInterface
             $lists = json_decode($fileContent);
 
             $data = [
-                'lists' => $lists,
+                'iframe' => $iframe,
+                'lists'  => $lists,
             ];
 
             return new HtmlResponse($this->template->render('app::home-page', $data));
         } catch (Exception $e) {
             $data = [
+                'iframe'  => $iframe,
                 'message' => $e->getMessage(),
             ];
 

@@ -18,7 +18,7 @@
         <h1 class="h2 mt-3 d-flex w-100 justify-content-between">
             {{ list.name }}
             {% if list.displayList == true %}
-            <a href="{{ path('view', {list: list.identifier}) }}" class="text-info text-nowrap" style="text-decoration:none;">
+            <a href="{{ path('view', {list: list.identifier}) }}{{ iframe ? '?iframe'}}" class="text-info text-nowrap" style="text-decoration:none;">
                 <i class="fas fa-users"></i>
                 {{ list.members }}
             </a>

@@ -35,6 +35,10 @@ class ViewHandler implements RequestHandlerInterface
 
     public function handle(ServerRequestInterface $request) : ResponseInterface
     {
+        $query = $request->getQueryParams();
+
+        $iframe = isset($query['iframe']);
+
         $key = $request->getAttribute('list');
 
         $file = 'data/cache/lists.json';
@@ -72,6 +76,7 @@ class ViewHandler implements RequestHandlerInterface
         $members = json_decode($membersFileContent);
 
         $data = [
+            'iframe'  => $iframe,
             'list'    => $list,
             'members' => $members,
         ];

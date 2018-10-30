@@ -35,6 +35,10 @@ class SubscribeHandler implements RequestHandlerInterface
 
     public function handle(ServerRequestInterface $request) : ResponseInterface
     {
+        $query = $request->getQueryParams();
+
+        $iframe = isset($query['iframe']);
+
         $key = $request->getAttribute('list');
 
         $file = 'data/cache/lists.json';
@@ -57,7 +61,8 @@ class SubscribeHandler implements RequestHandlerInterface
         }
 
         $data = [
-            'list' => $list,
+            'iframe' => $iframe,
+            'list'   => $list,
         ];
 
         return new HtmlResponse($this->template->render('app::subscribe', $data));
