@@ -11,7 +11,7 @@
         "jhut89/mailchimp3php": "3.0.2",
         "zendframework/zend-component-installer": "2.1.1",
         "zendframework/zend-config-aggregator": "1.1.1",
-        "zendframework/zend-diactoros": "2.0.0",
+        "zendframework/zend-diactoros": "2.1.2",
         "zendframework/zend-expressive": "3.2.0",
         "zendframework/zend-expressive-fastroute": "3.0.2",
         "zendframework/zend-expressive-helpers": "5.1.2",
