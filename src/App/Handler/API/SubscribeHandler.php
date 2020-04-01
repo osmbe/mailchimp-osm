@@ -22,7 +22,7 @@ class SubscribeHandler implements RequestHandlerInterface
         $this->mailchimp = $mailchimp;
     }
 
-    public function handle(ServerRequestInterface $request) : ResponseInterface
+    public function handle(ServerRequestInterface $request): ResponseInterface
     {
         $key = $request->getAttribute('list');
 

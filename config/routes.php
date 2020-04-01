@@ -32,7 +32,7 @@ use Zend\Expressive\MiddlewareFactory;
  *     'contact'
  * );
  */
-return function (Application $app, MiddlewareFactory $factory, ContainerInterface $container) : void {
+return function (Application $app, MiddlewareFactory $factory, ContainerInterface $container): void {
     $app->get('/', App\Handler\HomePageHandler::class, 'home');
     $app->get('/subscribe/{list}', App\Handler\SubscribeHandler::class, 'subscribe');
     $app->get('/view/{list}', App\Handler\ViewHandler::class, 'view');

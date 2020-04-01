@@ -10,7 +10,7 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 class SubscribeHandlerFactory
 {
-    public function __invoke(ContainerInterface $container) : RequestHandlerInterface
+    public function __invoke(ContainerInterface $container): RequestHandlerInterface
     {
         $config = $container->get('config');
 

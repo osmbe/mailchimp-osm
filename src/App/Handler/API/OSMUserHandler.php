@@ -12,7 +12,7 @@ use Zend\Diactoros\Response\EmptyResponse;
 
 class OSMUserHandler implements RequestHandlerInterface
 {
-    public function handle(ServerRequestInterface $request) : ResponseInterface
+    public function handle(ServerRequestInterface $request): ResponseInterface
     {
         $username = $request->getAttribute('username');
 

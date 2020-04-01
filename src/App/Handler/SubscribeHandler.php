@@ -33,7 +33,7 @@ class SubscribeHandler implements RequestHandlerInterface
         $this->containerName = $containerName;
     }
 
-    public function handle(ServerRequestInterface $request) : ResponseInterface
+    public function handle(ServerRequestInterface $request): ResponseInterface
     {
         $query = $request->getQueryParams();
 
