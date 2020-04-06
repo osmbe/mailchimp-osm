@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "96dfba4633676b671079be65024bcb1d",
+    "content-hash": "77fc4936eeba1640378079b0b7d85267",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -281,22 +281,25 @@
         },
         {
             "name": "jhut89/mailchimp3php",
-            "version": "3.0.2",
+            "version": "3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Jhut89/Mailchimp-API-3.0-PHP.git",
-                "reference": "41d8605ec8908f5a8777fa658e7b7b5e49f8e951"
+                "reference": "d8d105abdd2ecae0868736667ba2d8ced655829a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Jhut89/Mailchimp-API-3.0-PHP/zipball/41d8605ec8908f5a8777fa658e7b7b5e49f8e951",
-                "reference": "41d8605ec8908f5a8777fa658e7b7b5e49f8e951",
+                "url": "https://api.github.com/repos/Jhut89/Mailchimp-API-3.0-PHP/zipball/d8d105abdd2ecae0868736667ba2d8ced655829a",
+                "reference": "d8d105abdd2ecae0868736667ba2d8ced655829a",
                 "shasum": ""
             },
             "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
                 "php": ">=5.5.0"
             },
             "require-dev": {
+                "php": ">=7.2.0",
                 "phpunit/phpunit": "^5",
                 "squizlabs/php_codesniffer": "3.*"
             },
@@ -314,12 +317,12 @@
             "authors": [
                 {
                     "name": "John Hutcheson",
-                    "email": "hutch@theresearchgroup.io"
+                    "email": "hutch@theresearchgrp.com"
                 }
             ],
             "description": "A php library for version 3.0 of MailChimp's API",
             "homepage": "https://github.com/Jhut89/Mailchimp-API-3.0-PHP",
-            "time": "2018-10-13T16:27:35+00:00"
+            "time": "2020-02-27T16:13:24+00:00"
         },
         {
             "name": "nikic/fast-route",

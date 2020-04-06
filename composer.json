@@ -8,7 +8,7 @@
         "php": "^7.1",
         "ext-mbstring": "*",
         "guzzlehttp/guzzle": "6.5.2",
-        "jhut89/mailchimp3php": "3.0.2",
+        "jhut89/mailchimp3php": "3.2.1",
         "zendframework/zend-component-installer": "2.1.2",
         "zendframework/zend-config-aggregator": "1.2.0",
         "zendframework/zend-diactoros": "2.2.1",
