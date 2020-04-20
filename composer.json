@@ -7,7 +7,7 @@
     "require": {
         "php": "^7.1",
         "ext-mbstring": "*",
-        "guzzlehttp/guzzle": "6.5.2",
+        "guzzlehttp/guzzle": "6.5.3",
         "jhut89/mailchimp3php": "3.2.1",
         "zendframework/zend-component-installer": "2.1.2",
         "zendframework/zend-config-aggregator": "1.2.0",
