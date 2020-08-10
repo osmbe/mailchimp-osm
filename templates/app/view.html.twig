@@ -18,7 +18,7 @@
 <table class="table table-striped table-sm">
     <thead>
         <tr>
-            {% for field in list.mergeFields if field.public %}
+            {% for field in list.mergeFields | filter(f => f.public) %}
             <th class="text-nowrap"
                 {{ list.usernameMergeField is defined and list.usernameMergeField == field.tag ? ' colspan="2"'}}>{{
                 field.name }}</th>
@@ -29,7 +29,7 @@
     <tbody>
         {% for member in members %}
         <tr>
-            {% for field in list.mergeFields if field.public %}
+            {% for field in list.mergeFields | filter(f => f.public) %}
             {% if list.usernameMergeField is defined and list.usernameMergeField == field.tag %}
             {% if member.since is defined %}
             <td>

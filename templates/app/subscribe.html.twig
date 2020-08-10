@@ -32,7 +32,7 @@
         <small class="form-text text-muted">We'll never share your email with anyone else.</small>
     </div>
 
-    {% for field in list.mergeFields if field.public %}
+    {% for field in list.mergeFields | filter(f => f.public) %}
     <div class="form-group">
         <label for="input{{ field.tag }}">{{ field.name }}{{ field.required ? ' *' }}</label>
         {% if field.type == 'radio' %}
