@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace App\Handler\API;
 
 use Exception;
+use Laminas\Diactoros\Response\JsonResponse;
 use MailchimpAPI\Mailchimp;
 use MailchimpAPI\Responses\MailchimpResponse;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use Laminas\Diactoros\Response\JsonResponse;
 
 class SubscribeHandler implements RequestHandlerInterface
 {

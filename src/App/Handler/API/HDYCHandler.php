@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace App\Handler\API;
 
 use GuzzleHttp\Client;
+use Laminas\Diactoros\Response\JsonResponse;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use Laminas\Diactoros\Response\JsonResponse;
 
 class HDYCHandler implements RequestHandlerInterface
 {
