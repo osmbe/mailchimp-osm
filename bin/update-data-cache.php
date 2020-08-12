@@ -50,6 +50,7 @@ foreach ($mailchimpLists as $list) {
         'identifier'         => $identifier ?? $list->id,
         'description'        => $configList['description'] ?? null,
         'displayList'        => $configList['displayList'] ?? false,
+        'disableForm'        => $configList['disableForm'] ?? false,
         'usernameMergeField' => $configList['username'] ?? null,
         'countries'          => $configList['countries'] ?? [],
         'members'            => null,
