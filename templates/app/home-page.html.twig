@@ -19,7 +19,8 @@
 <div class="mx-auto" style="width: 33vw;">
     <div class="list-group">
         {% for list in lists %}
-        <a href="{{ path('subscribe', {'list': list.identifier}) }}{{ iframe ? '?iframe'}}" class="list-group-item list-group-item-action flex-column align-items-start">
+        {% set path = (list.displayList == true and list.disableForm == true) ? path('view', {'list': list.identifier}) : path('subscribe', {'list': list.identifier}) %}
+        <a href="{{ path }}{{ iframe ? '?iframe'}}" class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
                 <h5 class="mb-1">{{ list.name }}</h5>
                 {% if list.displayList == true %}
