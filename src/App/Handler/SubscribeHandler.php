@@ -60,6 +60,9 @@ class SubscribeHandler implements RequestHandlerInterface
             if ($list === false) {
                 throw new Exception(sprintf('The list "%s" does not exist !', $key));
             }
+            if ($list->disableForm === true) {
+                throw new Exception(sprintf('You can\'t register to list "%s".', $key));
+            }
 
             $data = [
                 'iframe' => $iframe,
