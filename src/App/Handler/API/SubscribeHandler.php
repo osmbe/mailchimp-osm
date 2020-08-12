@@ -37,7 +37,7 @@ class SubscribeHandler implements RequestHandlerInterface
         }
 
         $lists = json_decode($fileContent);
-        $list = current(array_filter($lists, function ($value) use ($key) {
+        $list = current(array_filter($lists, function ($value) use ($key): bool {
             return $value->identifier === $key;
         }));
 
