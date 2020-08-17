@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3c2a80cbed01f03bb2f5ec3ff5bd224f",
+    "content-hash": "33bcd56f3fac1bc263a166e6f464e224",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -1305,16 +1305,16 @@
         },
         {
             "name": "mezzio/mezzio-twigrenderer",
-            "version": "2.5.0",
+            "version": "2.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mezzio/mezzio-twigrenderer.git",
-                "reference": "ce6c8755e4caf47480a0b26c401ebbef39c9de83"
+                "reference": "ff4944ffc02b84cc9be5df655fb8168397fff473"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mezzio/mezzio-twigrenderer/zipball/ce6c8755e4caf47480a0b26c401ebbef39c9de83",
-                "reference": "ce6c8755e4caf47480a0b26c401ebbef39c9de83",
+                "url": "https://api.github.com/repos/mezzio/mezzio-twigrenderer/zipball/ff4944ffc02b84cc9be5df655fb8168397fff473",
+                "reference": "ff4944ffc02b84cc9be5df655fb8168397fff473",
                 "shasum": ""
             },
             "require": {
@@ -1324,24 +1324,25 @@
                 "mezzio/mezzio-template": "^2.0",
                 "php": "^7.1",
                 "psr/container": "^1.0",
-                "twig/twig": "^1.34 || ^2.4 || ^3.0"
+                "twig/twig": "^1.42.5 || ^2.12.5 || ^3.0.3"
             },
             "conflict": {
                 "container-interop/container-interop": "<1.2.0"
             },
             "replace": {
-                "zendframework/zend-expressive-twigrenderer": "self.version"
+                "zendframework/zend-expressive-twigrenderer": "^2.5.0"
             },
             "require-dev": {
                 "laminas/laminas-coding-standard": "~1.0.0",
                 "malukenho/docheader": "^0.1.5",
-                "phpunit/phpunit": "^7.5.17 || ^8.4.3"
+                "phpspec/prophecy": "^1.10.3",
+                "phpunit/phpunit": "^7.5.20 || ^8.5.2"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.5.x-dev",
-                    "dev-develop": "2.6.x-dev"
+                    "dev-master": "2.6.x-dev",
+                    "dev-develop": "2.7.x-dev"
                 },
                 "laminas": {
                     "config-provider": "Mezzio\\Twig\\ConfigProvider"
@@ -1367,7 +1368,7 @@
                 "psr-7",
                 "twig"
             ],
-            "time": "2019-12-31T15:48:49+00:00"
+            "time": "2020-03-28T21:43:15+00:00"
         },
         {
             "name": "nikic/fast-route",
