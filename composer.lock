@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8dd59454686e6aa423dd1adbdf303187",
+    "content-hash": "83cc5d153d57b240ab2cdd6c7862147e",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -966,16 +966,16 @@
         },
         {
             "name": "mezzio/mezzio",
-            "version": "3.2.0",
+            "version": "3.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mezzio/mezzio.git",
-                "reference": "9929f208f08b9e9d2e0f2cd9dfb95972a661467f"
+                "reference": "6bd539f29c7b27cab7bcb6ea433222f8b1c0d099"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mezzio/mezzio/zipball/9929f208f08b9e9d2e0f2cd9dfb95972a661467f",
-                "reference": "9929f208f08b9e9d2e0f2cd9dfb95972a661467f",
+                "url": "https://api.github.com/repos/mezzio/mezzio/zipball/6bd539f29c7b27cab7bcb6ea433222f8b1c0d099",
+                "reference": "6bd539f29c7b27cab7bcb6ea433222f8b1c0d099",
                 "shasum": ""
             },
             "require": {
@@ -995,7 +995,7 @@
                 "laminas/laminas-diactoros": "<1.7.1"
             },
             "replace": {
-                "zendframework/zend-expressive": "self.version"
+                "zendframework/zend-expressive": "^3.2.1"
             },
             "require-dev": {
                 "filp/whoops": "^1.1.10 || ^2.1.13",
@@ -1013,7 +1013,7 @@
             },
             "suggest": {
                 "filp/whoops": "^2.1 to use the Whoops error handler",
-                "laminas/laminas-auradi-config": "^1.0 to use Aura.Di dependency injection container",
+                "laminas/laminas-auradi-config": "^2.0 to use Aura.Di dependency injection container",
                 "laminas/laminas-pimple-config": "^1.0 to use Pimple for dependency injection container",
                 "laminas/laminas-servicemanager": "^3.3 to use laminas-servicemanager for dependency injection",
                 "mezzio/mezzio-helpers": "^3.0 for its UrlHelper, ServerUrlHelper, and BodyParseMiddleware",
@@ -1058,7 +1058,13 @@
                 "psr-15",
                 "psr-7"
             ],
-            "time": "2019-12-31T15:42:04+00:00"
+            "funding": [
+                {
+                    "url": "https://funding.communitybridge.org/projects/laminas-project",
+                    "type": "community_bridge"
+                }
+            ],
+            "time": "2020-04-28T18:52:32+00:00"
         },
         {
             "name": "mezzio/mezzio-fastroute",
