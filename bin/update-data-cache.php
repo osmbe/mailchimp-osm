@@ -68,7 +68,9 @@ foreach ($mailchimpLists as $list) {
         ->deserialize()
         ->merge_fields;
     foreach ($mailchimpMergeFields as $mergeField) {
-        if (in_array($mergeField->tag, ['ADDRESS', 'POSTCODE'])) continue;
+        if (in_array($mergeField->tag, ['ADDRESS', 'POSTCODE'])) {
+            continue;
+        }
 
         $myList['mergeFields'][] = [
             'tag'          => $mergeField->tag,
